@@ -1,0 +1,229 @@
+.list-crud {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.list-crud__form {
+  margin-bottom: 1.5rem;
+}
+
+.list-crud__input-group {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.list-crud__input {
+  flex: 1;
+  padding: 0.75rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+.list-crud__input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.list-crud__add-btn {
+  padding: 0.75rem 1.5rem;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.list-crud__add-btn:hover:not(:disabled) {
+  background-color: #2563eb;
+}
+
+.list-crud__add-btn:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+}
+
+.list-crud__error {
+  color: #dc2626;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  padding: 0.5rem;
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 0.375rem;
+}
+
+.list-crud__stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0;
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.list-crud__clear-btn {
+  padding: 0.375rem 0.75rem;
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.list-crud__clear-btn:hover {
+  background-color: #dc2626;
+}
+
+.list-crud__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.list-crud__item {
+  background-color: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding: 1rem;
+  transition: box-shadow 0.2s ease;
+}
+
+.list-crud__item:hover {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.list-crud__item-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.list-crud__text {
+  flex: 1;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  transition: background-color 0.2s ease;
+  word-break: break-word;
+}
+
+.list-crud__text:hover {
+  background-color: #f9fafb;
+}
+
+.list-crud__actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.list-crud__edit-btn,
+.list-crud__delete-btn,
+.list-crud__save-btn,
+.list-crud__cancel-btn {
+  padding: 0.375rem;
+  border: 1px solid #d1d5db;
+  background-color: white;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+  min-width: 2rem;
+}
+
+.list-crud__edit-btn:hover {
+  background-color: #f3f4f6;
+  border-color: #9ca3af;
+}
+
+.list-crud__delete-btn:hover {
+  background-color: #fef2f2;
+  border-color: #fca5a5;
+}
+
+.list-crud__save-btn {
+  background-color: #10b981;
+  color: white;
+  border-color: #10b981;
+}
+
+.list-crud__save-btn:hover {
+  background-color: #059669;
+  border-color: #059669;
+}
+
+.list-crud__cancel-btn {
+  background-color: #6b7280;
+  color: white;
+  border-color: #6b7280;
+}
+
+.list-crud__cancel-btn:hover {
+  background-color: #4b5563;
+  border-color: #4b5563;
+}
+
+.list-crud__edit-group {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  width: 100%;
+}
+
+.list-crud__edit-input {
+  flex: 1;
+  padding: 0.5rem;
+  border: 2px solid #3b82f6;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  background-color: #fff;
+}
+
+.list-crud__edit-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.list-crud__empty {
+  text-align: center;
+  color: #9ca3af;
+  font-style: italic;
+  padding: 2rem;
+  background-color: #f9fafb;
+  border: 2px dashed #d1d5db;
+  border-radius: 0.5rem;
+}
+
+@media (max-width: 640px) {
+  .list-crud {
+    padding: 0.5rem;
+  }
+  
+  .list-crud__input-group {
+    flex-direction: column;
+  }
+  
+  .list-crud__item-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  
+  .list-crud__actions {
+    align-self: flex-end;
+  }
+}
