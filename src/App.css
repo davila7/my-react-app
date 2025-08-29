@@ -1,8 +1,15 @@
+.app-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 .app {
   max-width: 600px;
   margin: 0 auto;
   padding: 2rem;
   font-family: system-ui, -apple-system, sans-serif;
+  flex: 1;
 }
 
 .app h1 {

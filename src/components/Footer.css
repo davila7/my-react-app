@@ -1,0 +1,30 @@
+.footer {
+  background-color: #f8f9fa;
+  border-top: 1px solid #ddd;
+  margin-top: 2rem;
+  padding: 1.5rem 0;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.footer-container p {
+  margin: 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .footer-container {
+    padding: 0 1rem;
+  }
+  
+  .footer-container p {
+    font-size: 0.8rem;
+  }
+}
