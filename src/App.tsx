@@ -75,6 +75,13 @@ function App() {
     window.open(url, '_blank', 'width=550,height=420')
   }
 
+  const isCompletedToday = (todo: any) => {
+    if (!todo.completed) return false
+    const today = new Date().toDateString()
+    const todoDate = new Date(todo.createdAt).toDateString()
+    return today === todoDate
+  }
+
   const filterButtons: { key: TodoFilter; label: string }[] = [
     { key: 'all', label: 'All' },
     { key: 'active', label: 'Active' },
@@ -127,9 +134,16 @@ function App() {
                   className="todo-checkbox"
                 />
                 <div className="todo-text-container">
-                  <span className={todo.completed ? 'todo-text completed' : 'todo-text'}>
-                    {todo.text}
-                  </span>
+                  <div className="todo-text-line">
+                    <span className={todo.completed ? 'todo-text completed' : 'todo-text'}>
+                      {todo.text}
+                    </span>
+                    {isCompletedToday(todo) && (
+                      <span className="completed-today-badge">
+                        ✨ Today
+                      </span>
+                    )}
+                  </div>
                   <span className="todo-date">
                     {/* Display creation date in user's locale */}
                     {new Date(todo.createdAt).toLocaleDateString()}

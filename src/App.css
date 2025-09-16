@@ -124,15 +124,39 @@
   gap: 0.25rem;
 }
 
+.todo-text-line {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .todo-text {
   text-align: left;
   font-size: 1rem;
   line-height: 1.4;
+  flex: 1;
 }
 
 .todo-text.completed {
   text-decoration: line-through;
   color: #888;
+}
+
+.completed-today-badge {
+  background: linear-gradient(135deg, #ff6b6b, #feca57);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: bold;
+  padding: 0.2rem 0.5rem;
+  border-radius: 12px;
+  white-space: nowrap;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  animation: gentle-pulse 2s ease-in-out infinite;
+}
+
+@keyframes gentle-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
 }
 
 .todo-date {
