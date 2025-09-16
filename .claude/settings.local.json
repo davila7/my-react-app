@@ -3,7 +3,8 @@
     "allow": [
       "Bash(rm:*)",
       "Bash(npm start)",
-      "Bash(npx docusaurus start:*)"
+      "Bash(npx docusaurus start:*)",
+      "Bash(git add:*)"
     ]
   }
 }

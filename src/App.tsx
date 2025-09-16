@@ -88,13 +88,19 @@ function App() {
         <h1>Todo List</h1>
         
         <form onSubmit={handleSubmit} className="todo-form">
-          <input
-            type="text"
-            value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
-            placeholder="Add a new todo..."
-            className="todo-input"
-          />
+          <div className="input-container">
+            <input
+              type="text"
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+              placeholder="Add a new todo..."
+              className="todo-input"
+              maxLength={200}
+            />
+            <div className="character-counter">
+              {inputValue.length}/200
+            </div>
+          </div>
           <button type="submit" className="add-button">Add</button>
         </form>
 

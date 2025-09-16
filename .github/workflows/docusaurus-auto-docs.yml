@@ -2,12 +2,9 @@
 name: Docusaurus Documentation Automation
 
 on:
-  push:
+  pull_request:
     branches:
-      # CUSTOMIZE: Add your default branch
       - main
-      - master
-      - develop
     paths:
       # CUSTOMIZE: Add paths that should trigger documentation updates
       - '**.js'
@@ -21,6 +18,7 @@ on:
       - '!**/node_modules/**'
       - '!**/dist/**'
       - '!**/build/**'
+      - '!docs/**'
 
 jobs:
   auto-document:
@@ -50,7 +48,7 @@ jobs:
         id: changed
         run: |
           echo "files<<EOF" >> $GITHUB_OUTPUT
-          git diff --name-only HEAD^ HEAD >> $GITHUB_OUTPUT
+          git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.sha }} >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
       # Execute with agent
       - name: Update documentation
@@ -59,7 +57,7 @@ jobs:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           prompt: |
             Read and follow the instructions in .claude/agents/docusaurus-expert.md
-            Changed files in this commit:
+            Changed files in this pull request:
             ${{ steps.changed.outputs.files }}
             Requirements:
             # CUSTOMIZE: Add your specific documentation requirements
@@ -84,7 +82,7 @@ jobs:
           commit-message: "docs: update via docusaurus-expert agent"
           title: "📚 Documentation Update"
           body: |
-            Automated documentation update based on code changes.
+            Automated documentation update based on pull request changes.
             **Changed files:**
             ```
             ${{ steps.changed.outputs.files }}
