@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useTodos } from './hooks/useTodos'
 import type { TodoFilter } from './types/todo'
 import Navbar from './components/Navbar'
@@ -25,7 +25,7 @@ function App() {
   }
 
   // Apply theme to <html> element
-  React.useEffect(() => {
+  useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
     document.documentElement.style.colorScheme = theme;
   }, [theme]);
@@ -38,6 +38,13 @@ function App() {
       addTodo(inputValue)
       setInputValue('')
     }
+  }
+
+  const shareToX = (todoText: string, completed: boolean) => {
+    const status = completed ? '✅ Completed' : '📝 Working on'
+    const text = `${status}: ${todoText}`
+    const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`
+    window.open(url, '_blank', 'width=550,height=420')
   }
 
   const filterButtons: { key: TodoFilter; label: string }[] = [
@@ -87,12 +94,21 @@ function App() {
               <span className={todo.completed ? 'todo-text completed' : 'todo-text'}>
                 {todo.text}
               </span>
-              <button
-                onClick={() => deleteTodo(todo.id)}
-                className="delete-button"
-              >
-                Delete
-              </button>
+              <div className="todo-actions">
+                <button
+                  onClick={() => shareToX(todo.text, todo.completed)}
+                  className="share-button"
+                  title="Share to X"
+                >
+                  𝕏
+                </button>
+                <button
+                  onClick={() => deleteTodo(todo.id)}
+                  className="delete-button"
+                >
+                  Delete
+                </button>
+              </div>
             </div>
           ))}
         </div>
