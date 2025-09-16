@@ -126,9 +126,14 @@ function App() {
                   onChange={() => toggleTodo(todo.id)}
                   className="todo-checkbox"
                 />
-                <span className={todo.completed ? 'todo-text completed' : 'todo-text'}>
-                  {todo.text}
-                </span>
+                <div className="todo-text-container">
+                  <span className={todo.completed ? 'todo-text completed' : 'todo-text'}>
+                    {todo.text}
+                  </span>
+                  <span className="todo-date">
+                    {new Date(todo.createdAt).toLocaleDateString()}
+                  </span>
+                </div>
               </div>
               <div className="todo-actions">
                 <button
