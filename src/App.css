@@ -463,3 +463,31 @@
     touch-action: manipulation;
   }
 }
+
+/* Priority feature styles */
+.priority-select {
+  padding: 0.75rem;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  min-width: 120px;
+  background: white;
+  cursor: pointer;
+}
+
+.priority-select:focus {
+  outline: none;
+  border-color: #646cff;
+}
+
+.todo-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.priority-indicator {
+  font-size: 0.875rem;
+  width: 1rem;
+  text-align: center;
+}

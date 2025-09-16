@@ -1,16 +1,17 @@
 import { useState, useCallback } from 'react';
-import type { Todo, TodoFilter } from '../types/todo';
+import type { Todo, TodoFilter, TodoPriority } from '../types/todo';
 
 export const useTodos = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [filter, setFilter] = useState<TodoFilter>('all');
 
-  const addTodo = useCallback((text: string) => {
+  const addTodo = useCallback((text: string, priority: TodoPriority = 'medium') => {
     const newTodo: Todo = {
       id: crypto.randomUUID(),
       text: text.trim(),
       completed: false,
       createdAt: new Date(),
+      priority,
     };
     setTodos(prev => [...prev, newTodo]);
   }, []);

@@ -37,13 +37,6 @@ jobs:
       - name: Setup Claude configuration
         run: |
           mkdir -p .claude/agents
-          # Install agent if not exists
-          if [ ! -f ".claude/agents/docusaurus-expert.md" ]; then
-            npx claude-code-templates@latest \
-              --agent documentation/docusaurus-expert \
-              --yes \
-              --directory .
-          fi
       # Get changed files for context
       - name: Get changed files
         id: changed
@@ -60,21 +53,40 @@ jobs:
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           prompt: |
-            Read and follow the instructions in .claude/agents/docusaurus-expert.md
-            Changed files in this pull request:
-            ${{ steps.changed.outputs.files }}
-            Requirements:
-            # CUSTOMIZE: Add your specific documentation requirements
-            1. Find the Docusaurus documentation (check: docs/, docu/, documentation/, website/docs/)
-            2. Update documentation for any changed functionality
-            3. Add new documentation for new features
-            4. Update API references if function signatures changed
-            5. Ensure all code examples match the current implementation
-            # CUSTOMIZE: Add project-specific rules
-            Project-specific rules:
-            - Documentation language: English
-            - Code examples should include TypeScript types where applicable
-            - Follow existing documentation structure and style
+            You are a Docusaurus expert specializing in documentation sites, with deep expertise in Docusaurus v2/v3 configuration, theming, content management, and deployment.
+
+            TASK: Update documentation for this React Todo App based on the following code changes:
+            Changed files: ${{ steps.changed.outputs.files }}
+
+            ## PRIMARY FOCUS AREAS
+            - MDX and Markdown documentation authoring
+            - Sidebar navigation and categorization
+            - Documentation hierarchy optimization
+            - Content organization by user journey
+
+            ## CURRENT APP FEATURES
+            - Todo creation, editing, deletion with character counter
+            - Share functionality to X/Twitter (individual and bulk)
+            - Responsive design for mobile/tablet
+            - Dark/light theme toggle
+            - Creation date display
+            - Task completion tracking
+            - Priority indicator system (NEW: high/medium/low priorities with color indicators)
+
+            ## WORK PROCESS
+            1. **Project Analysis**: Examine the changed files to understand new features
+            2. **Content Assessment**: Review existing documentation structure in docs/
+            3. **Update Documentation**: Create or update appropriate files
+            4. **Navigation**: Update sidebars.ts if new sections are needed
+
+            ## STANDARDS
+            - Use kebab-case for file names
+            - Include proper frontmatter (title, sidebar_position, description)
+            - Organize docs by logical hierarchy
+            - Provide clear code examples with TypeScript types
+            - Update getting-started.md for setup-related changes
+
+            Focus on documenting the new priority indicator feature and any other changes in the modified files. Create clear, user-friendly documentation that follows the existing docs structure.
           # CUSTOMIZE: Adjust settings
           claude_args: "--max-turns 8"
 

@@ -7,7 +7,8 @@
       "Bash(git add:*)",
       "Bash(gh run view:*)",
       "Bash(git checkout:*)",
-      "Bash(git pull:*)"
+      "Bash(git pull:*)",
+      "Bash(git push:*)"
     ]
   }
 }

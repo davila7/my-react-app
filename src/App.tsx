@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useTodos } from './hooks/useTodos'
-import type { TodoFilter } from './types/todo'
+import type { TodoFilter, TodoPriority } from './types/todo'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import './App.css';
@@ -30,13 +30,15 @@ function App() {
     document.documentElement.style.colorScheme = theme;
   }, [theme]);
   const [inputValue, setInputValue] = useState('')
+  const [priority, setPriority] = useState<TodoPriority>('medium')
   const { todos, filter, stats, addTodo, toggleTodo, deleteTodo, clearCompleted, setFilter } = useTodos()
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (inputValue.trim()) {
-      addTodo(inputValue)
+      addTodo(inputValue, priority)
       setInputValue('')
+      setPriority('medium')
     }
   }
 
@@ -101,6 +103,15 @@ function App() {
               {inputValue.length}/200
             </div>
           </div>
+          <select
+            value={priority}
+            onChange={(e) => setPriority(e.target.value as TodoPriority)}
+            className="priority-select"
+          >
+            <option value="low">🟢 Low</option>
+            <option value="medium">🟡 Medium</option>
+            <option value="high">🔴 High</option>
+          </select>
           <button type="submit" className="add-button">Add</button>
         </form>
 
@@ -127,9 +138,14 @@ function App() {
                   className="todo-checkbox"
                 />
                 <div className="todo-text-container">
-                  <span className={todo.completed ? 'todo-text completed' : 'todo-text'}>
-                    {todo.text}
-                  </span>
+                  <div className="todo-header">
+                    <span className={`priority-indicator priority-${todo.priority}`}>
+                      {todo.priority === 'high' ? '🔴' : todo.priority === 'medium' ? '🟡' : '🟢'}
+                    </span>
+                    <span className={todo.completed ? 'todo-text completed' : 'todo-text'}>
+                      {todo.text}
+                    </span>
+                  </div>
                   <span className="todo-date">
                     {/* Display creation date in user's locale */}
                     {new Date(todo.createdAt).toLocaleDateString()}
