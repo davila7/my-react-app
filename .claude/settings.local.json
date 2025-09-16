@@ -4,7 +4,8 @@
       "Bash(rm:*)",
       "Bash(npm start)",
       "Bash(npx docusaurus start:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(gh run view:*)"
     ]
   }
 }
