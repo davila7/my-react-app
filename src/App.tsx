@@ -108,9 +108,9 @@ function App() {
             onChange={(e) => setPriority(e.target.value as TodoPriority)}
             className="priority-select"
           >
-            <option value="low">🟢 Low</option>
-            <option value="medium">🟡 Medium</option>
-            <option value="high">🔴 High</option>
+            <option value="low">🟢 Low Priority</option>
+            <option value="medium">🟡 Medium Priority</option>
+            <option value="high">🔴 High Priority</option>
           </select>
           <button type="submit" className="add-button">Add</button>
         </form>
