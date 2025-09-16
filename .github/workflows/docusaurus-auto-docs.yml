@@ -31,7 +31,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 2
+          fetch-depth: 0
 
       # Ensure .claude directory exists
       - name: Setup Claude configuration
@@ -48,8 +48,12 @@ jobs:
       - name: Get changed files
         id: changed
         run: |
+          # Fetch the base branch
+          git fetch origin ${{ github.event.pull_request.base.ref }}:${{ github.event.pull_request.base.ref }}
+          
+          # Get changed files
           echo "files<<EOF" >> $GITHUB_OUTPUT
-          git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.sha }} >> $GITHUB_OUTPUT
+          git diff --name-only ${{ github.event.pull_request.base.ref }}...HEAD >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
       # Execute with agent
       - name: Update documentation
