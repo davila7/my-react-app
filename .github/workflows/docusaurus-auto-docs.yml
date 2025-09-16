@@ -89,5 +89,6 @@ jobs:
             ${{ steps.changed.outputs.files }}
             ```
           branch: docs/auto-${{ github.sha }}
+          base: main
           # CUSTOMIZE: Set your team or specific reviewers
           # team-reviewers: documentation-team
