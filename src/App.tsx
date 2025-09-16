@@ -156,7 +156,12 @@ function App() {
         </div>
 
         <div className="stats">
-          <span>Total: {stats.total} | Active: {stats.active} | Completed: {stats.completed}</span>
+          <div className="stats-info">
+            <span>Total: {stats.total} | Active: {stats.active} | Completed: {stats.completed}</span>
+            <span className="character-count">
+              📝 {todos.reduce((total, todo) => total + todo.text.length, 0)} characters
+            </span>
+          </div>
           <div className="stats-actions">
             {todos.length > 0 && (
               <button onClick={shareAllToX} className="share-all-button" title="Share all tasks to X">

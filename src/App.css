@@ -184,6 +184,18 @@
   border-top: 1px solid #ddd;
 }
 
+.stats-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.character-count {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
+}
+
 .stats-actions {
   display: flex;
   gap: 0.75rem;
@@ -284,6 +296,10 @@
     flex-direction: column;
     gap: 1rem;
     align-items: stretch;
+  }
+
+  .stats-info {
+    text-align: center;
   }
 
   .stats-actions {
