@@ -95,7 +95,11 @@ function App() {
               onChange={(e) => setInputValue(e.target.value)}
               placeholder="Add a new todo..."
               className="todo-input"
+              maxLength={200}
             />
+            <div className="character-counter">
+              {inputValue.length}/200
+            </div>
             {inputValue.length > 0 && (
               <button
                 type="button"

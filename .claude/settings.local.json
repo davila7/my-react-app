@@ -4,7 +4,8 @@
       "Bash(rm:*)",
       "Bash(npm start)",
       "Bash(npx docusaurus start:*)",
-      "Bash(git checkout:*)"
+      "Bash(git checkout:*)",
+      "Bash(git add:*)"
     ]
   }
 }

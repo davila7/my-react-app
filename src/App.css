@@ -33,7 +33,7 @@
 .todo-input {
   width: 100%;
   padding: 0.75rem;
-  padding-right: 3rem;
+  padding-right: 6rem;
   border: 2px solid #ddd;
   border-radius: 4px;
   font-size: 1rem;
@@ -42,6 +42,18 @@
 .todo-input:focus {
   outline: none;
   border-color: #646cff;
+}
+
+.character-counter {
+  position: absolute;
+  right: 3rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.8rem;
+  color: #888;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
 }
 
 .clear-input-button {
@@ -315,8 +327,21 @@
 
   .todo-input {
     padding: 1rem;
+    padding-right: 7rem;
     font-size: 1.125rem;
     border-radius: 8px;
+  }
+
+  .character-counter {
+    right: 3.5rem;
+    font-size: 0.9rem;
+    padding: 0.3rem 0.5rem;
+  }
+
+  .clear-input-button {
+    right: 1rem;
+    font-size: 1rem;
+    padding: 0.3rem 0.5rem;
   }
 
   .add-button {
@@ -434,7 +459,7 @@
     cursor: pointer;
   }
 
-  .filter-button, .add-button, .share-button, .delete-button, .clear-button, .share-all-button {
+  .filter-button, .add-button, .share-button, .delete-button, .clear-button, .share-all-button, .clear-input-button {
     min-height: 44px;
     touch-action: manipulation;
   }
