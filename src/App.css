@@ -25,9 +25,15 @@
   margin-bottom: 1.5rem;
 }
 
-.todo-input {
+.input-container {
   flex: 1;
+  position: relative;
+}
+
+.todo-input {
+  width: 100%;
   padding: 0.75rem;
+  padding-right: 3rem;
   border: 2px solid #ddd;
   border-radius: 4px;
   font-size: 1rem;
@@ -36,6 +42,31 @@
 .todo-input:focus {
   outline: none;
   border-color: #646cff;
+}
+
+.clear-input-button {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: #999;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.clear-input-button:hover {
+  background-color: #f0f0f0;
+  color: #666;
 }
 
 .add-button {

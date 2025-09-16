@@ -88,13 +88,25 @@ function App() {
         <h1>Todo List</h1>
         
         <form onSubmit={handleSubmit} className="todo-form">
-          <input
-            type="text"
-            value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
-            placeholder="Add a new todo..."
-            className="todo-input"
-          />
+          <div className="input-container">
+            <input
+              type="text"
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+              placeholder="Add a new todo..."
+              className="todo-input"
+            />
+            {inputValue.length > 0 && (
+              <button
+                type="button"
+                onClick={() => setInputValue('')}
+                className="clear-input-button"
+                title="Clear input"
+              >
+                ✕
+              </button>
+            )}
+          </div>
           <button type="submit" className="add-button">Add</button>
         </form>
 
