@@ -51,10 +51,9 @@ jobs:
           # Fetch the base branch
           git fetch origin ${{ github.event.pull_request.base.ref }}:${{ github.event.pull_request.base.ref }}
           
-          # Get changed files
-          echo "files<<EOF" >> $GITHUB_OUTPUT
-          git diff --name-only ${{ github.event.pull_request.base.ref }}...HEAD >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
+          # Get changed files and save to output
+          CHANGED_FILES=$(git diff --name-only ${{ github.event.pull_request.base.ref }}...HEAD | tr '\n' ' ')
+          echo "files=$CHANGED_FILES" >> $GITHUB_OUTPUT
       # Execute with agent
       - name: Update documentation
         uses: anthropics/claude-code-action@v1
