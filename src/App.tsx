@@ -131,6 +131,7 @@ function App() {
                     {todo.text}
                   </span>
                   <span className="todo-date">
+                    {/* Display creation date in user's locale */}
                     {new Date(todo.createdAt).toLocaleDateString()}
                   </span>
                 </div>
