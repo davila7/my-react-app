@@ -491,3 +491,19 @@
   width: 1rem;
   text-align: center;
 }
+
+/* Todo count badge */
+.todo-count-badge {
+  background: #646cff;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  margin-left: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.5rem;
+  height: 1.5rem;
+}

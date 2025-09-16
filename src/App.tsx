@@ -87,7 +87,12 @@ function App() {
     <div className="app-wrapper">
       <Navbar theme={theme} toggleTheme={toggleTheme} />
       <div className="app">
-        <h1>Todo List</h1>
+        <h1>
+          Todo List 
+          {stats.total > 0 && (
+            <span className="todo-count-badge">{stats.total}</span>
+          )}
+        </h1>
         
         <form onSubmit={handleSubmit} className="todo-form">
           <div className="input-container">
