@@ -2,6 +2,7 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: #f5f5f5;
 }
 
 .app {
@@ -86,6 +87,13 @@
   margin-bottom: 0.5rem;
 }
 
+.todo-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+}
+
 .todo-checkbox {
   width: 1.25rem;
   height: 1.25rem;
@@ -144,6 +152,28 @@
   border-top: 1px solid #ddd;
 }
 
+.stats-actions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.share-all-button {
+  padding: 0.5rem 1rem;
+  background: #1da1f2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.share-all-button:hover {
+  background: #0d8bd9;
+}
+
 .clear-button {
   padding: 0.5rem 1rem;
   background: #ff8800;
@@ -155,4 +185,226 @@
 
 .clear-button:hover {
   background: #cc6600;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+/* Tablet styles */
+@media (max-width: 768px) {
+  .app {
+    padding: 1.5rem;
+    max-width: 100%;
+  }
+
+  .app h1 {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .todo-form {
+    gap: 0.75rem;
+  }
+
+  .todo-input {
+    padding: 0.875rem;
+    font-size: 1.1rem;
+  }
+
+  .add-button {
+    padding: 0.875rem 1.25rem;
+    font-size: 1.1rem;
+    min-width: 80px;
+  }
+
+  .filters {
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .filter-button {
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+    min-width: 90px;
+  }
+
+  .todo-item {
+    gap: 0.75rem;
+    padding: 1.25rem;
+  }
+
+  .todo-checkbox {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .todo-text {
+    font-size: 1.1rem;
+  }
+
+  .share-button, .delete-button {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+  }
+
+  .stats {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+
+  .stats-actions {
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .share-all-button, .clear-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    flex: 1;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 480px) {
+  .app {
+    padding: 1rem;
+  }
+
+  .app h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .todo-form {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .todo-input {
+    padding: 1rem;
+    font-size: 1.125rem;
+    border-radius: 8px;
+  }
+
+  .add-button {
+    padding: 1rem;
+    font-size: 1.125rem;
+    border-radius: 8px;
+    width: 100%;
+  }
+
+  .filters {
+    gap: 0.5rem;
+    justify-content: stretch;
+  }
+
+  .filter-button {
+    flex: 1;
+    padding: 1rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    min-width: auto;
+  }
+
+  .todo-item {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+    padding: 1.5rem;
+    border-radius: 8px;
+  }
+
+  .todo-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .todo-checkbox {
+    width: 1.75rem;
+    height: 1.75rem;
+    flex-shrink: 0;
+  }
+
+  .todo-text {
+    font-size: 1.125rem;
+    line-height: 1.4;
+    word-break: break-word;
+  }
+
+  .todo-actions {
+    justify-content: stretch;
+    gap: 0.75rem;
+  }
+
+  .share-button, .delete-button {
+    flex: 1;
+    padding: 1rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+  }
+
+  .stats {
+    text-align: center;
+    font-size: 1.1rem;
+  }
+
+  .stats span {
+    line-height: 1.4;
+  }
+
+  .stats-actions {
+    width: 100%;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .share-all-button, .clear-button {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    border-radius: 8px;
+  }
+}
+
+/* Large mobile landscape */
+@media (max-width: 480px) and (orientation: landscape) {
+  .app {
+    padding: 0.75rem;
+  }
+
+  .app h1 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .todo-form {
+    flex-direction: row;
+  }
+
+  .todo-item {
+    flex-direction: row;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .todo-actions {
+    flex-direction: row;
+    min-width: 140px;
+  }
+}
+
+/* Touch-friendly improvements */
+@media (pointer: coarse) {
+  .todo-checkbox {
+    cursor: pointer;
+  }
+
+  .filter-button, .add-button, .share-button, .delete-button, .clear-button, .share-all-button {
+    min-height: 44px;
+    touch-action: manipulation;
+  }
 }

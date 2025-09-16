@@ -47,6 +47,34 @@ function App() {
     window.open(url, '_blank', 'width=550,height=420')
   }
 
+  const shareAllToX = () => {
+    if (todos.length === 0) return
+    
+    let text = `📝 My Todo List Update:\n\n`
+    
+    const activeTodos = todos.filter(todo => !todo.completed)
+    const completedTodos = todos.filter(todo => todo.completed)
+    
+    if (activeTodos.length > 0) {
+      text += `🔄 Working on:\n`
+      activeTodos.forEach(todo => {
+        text += `• ${todo.text}\n`
+      })
+    }
+    
+    if (completedTodos.length > 0) {
+      text += `\n✅ Completed:\n`
+      completedTodos.forEach(todo => {
+        text += `• ${todo.text}\n`
+      })
+    }
+    
+    text += `\n📊 Progress: ${completedTodos.length}/${todos.length} tasks completed`
+    
+    const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`
+    window.open(url, '_blank', 'width=550,height=420')
+  }
+
   const filterButtons: { key: TodoFilter; label: string }[] = [
     { key: 'all', label: 'All' },
     { key: 'active', label: 'Active' },
@@ -85,15 +113,17 @@ function App() {
         <div className="todo-list">
           {todos.map(todo => (
             <div key={todo.id} className="todo-item">
-              <input
-                type="checkbox"
-                checked={todo.completed}
-                onChange={() => toggleTodo(todo.id)}
-                className="todo-checkbox"
-              />
-              <span className={todo.completed ? 'todo-text completed' : 'todo-text'}>
-                {todo.text}
-              </span>
+              <div className="todo-content">
+                <input
+                  type="checkbox"
+                  checked={todo.completed}
+                  onChange={() => toggleTodo(todo.id)}
+                  className="todo-checkbox"
+                />
+                <span className={todo.completed ? 'todo-text completed' : 'todo-text'}>
+                  {todo.text}
+                </span>
+              </div>
               <div className="todo-actions">
                 <button
                   onClick={() => shareToX(todo.text, todo.completed)}
@@ -115,11 +145,18 @@ function App() {
 
         <div className="stats">
           <span>Total: {stats.total} | Active: {stats.active} | Completed: {stats.completed}</span>
-          {stats.completed > 0 && (
-            <button onClick={clearCompleted} className="clear-button">
-              Clear Completed
-            </button>
-          )}
+          <div className="stats-actions">
+            {todos.length > 0 && (
+              <button onClick={shareAllToX} className="share-all-button" title="Share all tasks to X">
+                𝕏 Share All
+              </button>
+            )}
+            {stats.completed > 0 && (
+              <button onClick={clearCompleted} className="clear-button">
+                Clear Completed
+              </button>
+            )}
+          </div>
         </div>
       </div>
       <Footer />
