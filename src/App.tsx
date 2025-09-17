@@ -88,7 +88,7 @@ function App() {
       <Navbar theme={theme} toggleTheme={toggleTheme} />
       <div className="app">
         <h1>
-          Todo List 
+          My Todo List 
           {stats.total > 0 && (
             <span className="todo-count-badge">{stats.total}</span>
           )}
