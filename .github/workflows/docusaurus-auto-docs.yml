@@ -37,6 +37,13 @@ jobs:
       - name: Setup Claude configuration
         run: |
           mkdir -p .claude/agents
+          # Install agent if not exists
+          if [ ! -f ".claude/agents/docusaurus-expert.md" ]; then
+            npx claude-code-templates@latest \
+              --agent documentation/docusaurus-expert \
+              --yes \
+              --directory .
+          fi
       # Get changed files for context
       - name: Get changed files
         id: changed
@@ -53,14 +60,37 @@ jobs:
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           prompt: |
-            Simple task: Update the existing documentation file docs/docs/getting-started.md 
+            Read and follow the instructions in .claude/agents/docusaurus-expert.md
             
-            Add a single line to the "Project Features" section mentioning the new todo count badge feature.
+            Changed files in this pull request:
+            ${{ steps.changed.outputs.files }}
             
-            Just add this line after the existing features:
-            - 📊 Todo count badge in title showing total number of tasks
+            ## Requirements
+            1. Find the Docusaurus documentation (check: docs/, docu/, documentation/, website/docs/)
+            2. Update documentation for any changed functionality
+            3. Add new documentation for new features
+            4. Update API references if function signatures changed
+            5. Ensure all code examples match the current implementation
             
-            That's it. Do not create new files. Do not analyze complex structures. Just edit that one existing file.
+            ## Project-specific rules
+            - Documentation language: English
+            - Code examples should include TypeScript types where applicable
+            - Follow existing documentation structure and style
+            - Update getting-started.md for new features
+            - Create feature-specific documentation files when appropriate
+            
+            ## Current App Context
+            This is a React Todo App with features like:
+            - Todo creation, editing, deletion with character limits
+            - Priority system (high/medium/low with color indicators)  
+            - Share functionality to X/Twitter (individual and bulk)
+            - Responsive design for mobile/tablet/desktop
+            - Dark/light theme toggle
+            - Creation date display for todos
+            - Task completion tracking and statistics
+            - Todo count badge in app title
+            
+            Focus on documenting the changes found in the modified files above.
           # CUSTOMIZE: Adjust settings
           claude_args: "--max-turns 15 --dangerously-skip-permissions"
 
