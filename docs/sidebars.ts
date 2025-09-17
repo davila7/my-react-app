@@ -16,8 +16,22 @@ const sidebars: SidebarsConfig = {
   // Documentation sidebar for React Todo App
   docsSidebar: [
     'getting-started',
-    // TODO: Add more documentation sections as they are created
-    // Architecture, Components, Hooks, API Reference, Development
+    {
+      type: 'category',
+      label: 'Features',
+      items: [
+        'features',
+      ],
+    },
+    {
+      type: 'category', 
+      label: 'Development',
+      items: [
+        'components',
+        'hooks',
+        'api',
+      ],
+    },
   ],
 };
 
