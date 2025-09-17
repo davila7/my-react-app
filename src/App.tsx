@@ -100,7 +100,7 @@ function App() {
               type="text"
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
-              placeholder="Add a new todo..."
+              placeholder="What needs to be done?"
               className="todo-input"
               maxLength={200}
             />
