@@ -69,3 +69,4 @@ export default tseslint.config([
 ```
 # Test pipeline with 15 max-turns
 # Pipeline test with simplified prompt
+# Testing docusaurus-expert agent integration
