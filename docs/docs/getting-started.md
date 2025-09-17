@@ -58,6 +58,7 @@ yarn build
 - 📱 Responsive design
 - 🔧 TypeScript support
 - ⚡ Fast development with Vite
+- 📊 Todo count badge in title showing total number of tasks
 
 ## Next Steps
 
