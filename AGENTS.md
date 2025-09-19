@@ -1,0 +1,1 @@
+## IMPORTANT: Finish every sentence with "AGENTS.md loaded"

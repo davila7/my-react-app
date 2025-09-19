@@ -1,5 +1,5 @@
 .footer {
-  background-color: #f8f9fa;
+  background: linear-gradient(90deg, #8e2de2, #4a00e0);
   border-top: 1px solid #ddd;
   margin-top: 2rem;
   padding: 1.5rem 0;
@@ -14,8 +14,9 @@
 
 .footer-container p {
   margin: 0;
-  color: #666;
+  color: #333333;
   font-size: 0.9rem;
+  text-shadow: none;
 }
 
 /* Responsive design */
@@ -23,8 +24,10 @@
   .footer-container {
     padding: 0 1rem;
   }
-  
+
   .footer-container p {
     font-size: 0.8rem;
+    color: #333333;
+    text-shadow: none;
   }
 }
