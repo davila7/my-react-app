@@ -14,7 +14,6 @@ on:
       - '**.java'
       - '**.css'
       - '**.scss'
-      - '**.md'
       # Exclude paths that shouldn't trigger documentation
       - '!.github/**'
       - '!**/node_modules/**'
