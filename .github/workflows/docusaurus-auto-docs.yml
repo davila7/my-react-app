@@ -12,6 +12,8 @@ on:
       - '**.tsx'
       - '**.py'
       - '**.java'
+      - '**.css'
+      - '**.scss'
       # Exclude paths that shouldn't trigger documentation
       - '!.github/**'
       - '!**/node_modules/**'
