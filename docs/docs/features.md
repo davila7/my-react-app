@@ -231,6 +231,25 @@ html[data-theme="light"] {
 }
 ```
 
+### Component-Specific Styling
+
+#### Footer Component
+The Footer component features distinctive red background styling that creates visual emphasis:
+
+- **Background Color**: Bright red (`background: red`) for high visibility
+- **Typography**: Dark gray text (#333333) for optimal contrast
+- **Border**: Subtle top border (#ddd) for separation
+- **Responsive Design**: Adapts padding and font sizes on mobile devices
+
+```css
+.footer {
+  background: red;
+  border-top: 1px solid #ddd;
+  margin-top: 2rem;
+  padding: 1.5rem 0;
+}
+```
+
 ## Responsive Design
 
 ### Breakpoint System
