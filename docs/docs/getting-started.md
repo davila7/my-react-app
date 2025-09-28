@@ -83,6 +83,7 @@ yarn build
 - 📱 **Responsive design** - Optimized for mobile, tablet, and desktop
 - 🔢 **Todo count badge** - Real-time counter in app title
 - ⚡ **Fast performance** - Optimized with React hooks and Vite
+- 🔴 **Distinctive footer** - Red-themed footer with technology credits
 
 ### Technical Features
 - 🔧 **TypeScript support** - Full type safety throughout

@@ -85,16 +85,26 @@ import Navbar from './components/Navbar'
 
 ### Footer Component
 
-Simple footer with copyright and technology information.
+Simple footer with copyright and technology information, featuring a distinctive red background styling.
 
 **File**: `src/components/Footer.tsx`
+**Styles**: `src/components/Footer.css`
 
 **Props**: None
 
 **Features**:
-- Copyright notice
+- Copyright notice with current year
 - Technology credits (React & TypeScript)
-- Consistent styling with app theme
+- Red background theme for visual emphasis
+- Responsive design with mobile optimization
+- Border styling and proper spacing
+
+**Styling Details**:
+The Footer component uses custom CSS with the following key styles:
+- **Background**: Red (`background: red`)
+- **Border**: Top border with light gray (`#ddd`)
+- **Typography**: Dark gray text (`#333333`) with no text shadow
+- **Responsive**: Adaptive padding and font sizes for mobile devices
 
 **Usage**:
 ```tsx
@@ -111,6 +121,35 @@ import Footer from './components/Footer'
   </div>
 </footer>
 ```
+
+**CSS Classes**:
+```css
+.footer {
+  background: red;
+  border-top: 1px solid #ddd;
+  margin-top: 2rem;
+  padding: 1.5rem 0;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.footer-container p {
+  margin: 0;
+  color: #333333;
+  font-size: 0.9rem;
+  text-shadow: none;
+}
+```
+
+**Responsive Behavior**:
+- **Mobile (≤768px)**: Reduced padding (`0 1rem`) and smaller font size (`0.8rem`)
+- **Desktop**: Standard padding and font size
+- **Container**: Max-width of 1200px with auto-centering
 
 ## UI Components
 
@@ -214,7 +253,7 @@ export default ComponentName;
 
 Each component has its own CSS file:
 - `Navbar.tsx` → `Navbar.css`
-- `Footer.tsx` → `Footer.css`
+- `Footer.tsx` → `Footer.css` (features red background styling)
 - `ThemeToggle.tsx` → `ThemeToggle.css`
 
 ### BEM-like Class Naming
