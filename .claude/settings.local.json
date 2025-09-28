@@ -1,4 +1,7 @@
 {
+  "env": {
+    "DISCORD_WEBHOOK_URL": "https://discord.com/api/webhooks/1421887462371889152/T_qkH3vmgW_CSiLb-fu_4ndiHVgYOPW6kpPJhD-Dmfqv3my9v63BnkI7wwuBB2SnElOB"
+  },
   "permissions": {
     "allow": [
       "Bash(rm:*)",
@@ -8,26 +11,22 @@
       "Bash(gh run view:*)",
       "Bash(git checkout:*)",
       "Bash(git pull:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nChange footer background color to red\n\nUpdated Footer.css to use red background for a more vibrant footer design.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git commit -m \"Add second test comment for workflow\n\nAnother small CSS change to trigger the Docusaurus documentation workflow.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\")",
+      "Bash(gh pr create --title \"Second test of Docusaurus workflow\" --body \"$(cat <<''EOF''\n## Summary\n• Added another test comment to Footer.css\n• Testing the Docusaurus documentation workflow execution again\n\n## Purpose\nThis is a second attempt to verify the workflow triggers correctly on CSS file changes.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\nEOF\n)\")"
     ]
   },
-  "env": {
-    "CLAUDE_CODE_USE_VERTEX": "1",
-    "CLOUD_ML_REGION": "global",
-    "ANTHROPIC_VERTEX_PROJECT_ID": "judini-oauth",
-    "VERTEX_REGION_CLAUDE_3_5_SONNET": "global",
-    "VERTEX_REGION_CLAUDE_3_5_HAIKU": "global",
-    "VERTEX_REGION_CLAUDE_3_7_SONNET": "global",
-    "VERTEX_REGION_CLAUDE_4_0_OPUS": "global",
-    "VERTEX_REGION_CLAUDE_4_0_SONNET": "global",
-    "VERTEX_REGION_CLAUDE_4_1_OPUS": "global",
-    "ANTHROPIC_MODEL": "claude-sonnet-4@20250514",
-    "ANTHROPIC_SMALL_FAST_MODEL": "claude-3-5-haiku@20241022",
-    "DISCORD_WEBHOOK_URL": "https://discord.com/api/webhooks/1421887462371889152/T_qkH3vmgW_CSiLb-fu_4ndiHVgYOPW6kpPJhD-Dmfqv3my9v63BnkI7wwuBB2SnElOB"
-  },
   "hooks": {
-    "PostToolUse": [{
-      "hooks": [{"type": "command", "command": ".claude/hooks/discord-notifier.py"}]
-    }]
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/discord-notifier.py"
+          }
+        ]
+      }
+    ]
   }
 }
