@@ -11,21 +11,23 @@
       "Bash(git push:*)"
     ]
   },
-  "disabledMcpjsonServers": [
-    "supabase"
-  ],
+  "env": {
+    "CLAUDE_CODE_USE_VERTEX": "1",
+    "CLOUD_ML_REGION": "global",
+    "ANTHROPIC_VERTEX_PROJECT_ID": "judini-oauth",
+    "VERTEX_REGION_CLAUDE_3_5_SONNET": "global",
+    "VERTEX_REGION_CLAUDE_3_5_HAIKU": "global",
+    "VERTEX_REGION_CLAUDE_3_7_SONNET": "global",
+    "VERTEX_REGION_CLAUDE_4_0_OPUS": "global",
+    "VERTEX_REGION_CLAUDE_4_0_SONNET": "global",
+    "VERTEX_REGION_CLAUDE_4_1_OPUS": "global",
+    "ANTHROPIC_MODEL": "claude-sonnet-4@20250514",
+    "ANTHROPIC_SMALL_FAST_MODEL": "claude-3-5-haiku@20241022",
+    "DISCORD_WEBHOOK_URL": "https://discord.com/api/webhooks/1421887462371889152/T_qkH3vmgW_CSiLb-fu_4ndiHVgYOPW6kpPJhD-Dmfqv3my9v63BnkI7wwuBB2SnElOB"
+  },
   "hooks": {
-    "SessionStart": [
-      {
-        "matcher": "startup|resume",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "python3 -c \"import json, sys, os; agents_content = open('AGENTS.md', 'r').read() if os.path.exists('AGENTS.md') else ''; output = {'hookSpecificOutput': {'hookEventName': 'SessionStart', 'additionalContext': agents_content}}; print(json.dumps(output))\"",
-            "timeout": 30
-          }
-        ]
-      }
-    ]
+    "PostToolUse": [{
+      "hooks": [{"type": "command", "command": ".claude/hooks/discord-notifier.py"}]
+    }]
   }
 }
