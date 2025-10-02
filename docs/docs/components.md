@@ -52,7 +52,7 @@ interface NavbarProps {
 
 **Features**:
 - Brand display ("TodoApp")
-- Navigation links (Home, About, Contact)
+- Navigation links (Home, About, Contact, Profile)
 - Integrated theme toggle
 - Responsive design for mobile/desktop
 
@@ -77,11 +77,19 @@ import Navbar from './components/Navbar'
       <a href="#" className="navbar-item">Home</a>
       <a href="#" className="navbar-item">About</a>
       <a href="#" className="navbar-item">Contact</a>
+      <a href="#" className="navbar-item navbar-profile">Profile</a>
       <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
     </div>
   </div>
 </nav>
 ```
+
+**Navigation Links**:
+- **Home**: Main application view
+- **About**: Information about the application
+- **Contact**: Contact information or support
+- **Profile**: User profile navigation (styled with `navbar-profile` class)
+- All navigation links use placeholder `href="#"` attributes
 
 ### Footer Component
 
