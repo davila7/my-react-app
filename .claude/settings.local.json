@@ -2,6 +2,27 @@
   "env": {
     "DISCORD_WEBHOOK_URL": "https://discord.com/api/webhooks/1421887462371889152/T_qkH3vmgW_CSiLb-fu_4ndiHVgYOPW6kpPJhD-Dmfqv3my9v63BnkI7wwuBB2SnElOB"
   },
+  "permissions": {
+    "allow": [
+      "Bash(npm test:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git checkout:*)",
+      "Bash(git merge:*)",
+      "Bash(git branch:*)",
+      "Bash(git pull:*)",
+      "Bash(git fetch:*)",
+      "Bash(git log:*)",
+      "Bash(git tag:*)",
+      "Bash(gh pr:*)",
+      "Bash(gh issue:*)",
+      "Bash(npm run:*)",
+      "Bash(npm start:*)"
+    ]
+  },
   "hooks": {
     "PreToolUse": [
       {

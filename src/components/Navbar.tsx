@@ -18,6 +18,7 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
           <a href="#" className="navbar-item">Home</a>
           <a href="#" className="navbar-item">About</a>
           <a href="#" className="navbar-item">Contact</a>
+          <a href="#" className="navbar-item navbar-profile">Profile</a>
           <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
         </div>
       </div>
