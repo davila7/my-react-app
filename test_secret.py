@@ -1,1 +1,0 @@
-SAFE_VALUE = "hello"
