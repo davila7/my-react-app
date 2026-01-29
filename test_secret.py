@@ -1,1 +1,1 @@
-SAFE_VALUE = "hello"
+ANTHROPIC_KEY = "sk-ant-api03-FAKEKEYFORTESTING1234567890abcdefghijk"
